@@ -17,10 +17,5 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#32001"
-msgid "General"
-msgstr "General"
-
-
-msgctxt "#32001"
 msgid "Api Key"
 msgstr "Api Key"
