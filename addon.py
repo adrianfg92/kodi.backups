@@ -4,7 +4,7 @@ import xbmcgui
 addon = xbmcaddon.Addon()
 addonname = addon.getAddonInfo('name')
 
-line1 = "Hello Adrian 0.0.5!"
+line1 = "Hello Adrian 0.0.11!"
 
 xbmcgui.Dialog().ok(addonname, line1)
 
