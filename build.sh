@@ -15,9 +15,9 @@ rm addon.xml;
 mv addon_temp.xml addon.xml;
 
 echo " 2/2 ==> Commit and push";
-#git add .;
-#git commit -am "Update to v${newVersion}";
-#git push;
+git add .;
+git commit -am "Update to v${newVersion}";
+git push;
 
 echo "
 
