@@ -1,6 +1,7 @@
 import xbmcaddon
 import xbmcgui
-from mega import Mega
+
+from lib.mega import Mega
 
 addon = xbmcaddon.Addon()
 addonName = addon.getAddonInfo('id')
