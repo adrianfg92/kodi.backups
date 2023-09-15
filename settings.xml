@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<settings version="1">
+    <section id="kodi.backups">
+        <category id="general" label="catlabel" help="">
+            <group id="1" label="grouplabel">
+                <setting id="test01" type="string" label="32001" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32001</heading>
+                    </control>
+                </setting>
+            </group>
+        </category>
+    </section>
+</settings>
