@@ -12,7 +12,7 @@
         <language/>
         <platform>all</platform>
         <assets>
-            <icon>resources/assets/icon.png</icon>
+            <icon>resources/icon.png</icon>
         </assets>
     </extension>
 </addon>
