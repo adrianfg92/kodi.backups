@@ -1,7 +1,24 @@
-replace="1";
-LINE="<addon id=\"kodi.backups\" name=\"kodi.backups\" version=\"0.0.5\" provider-name=\"adrian\">"
+#!/bin/sh
+clear
+echo "Init build...";
+echo " 1/2 ==> Setting new version";
 
-echo $LINE | sed -e "s/2/${replace}/g"
-#echo $LINE;
+file=`cat addon.xml`
+version=${file##*name=\"kodi.backups\" version=\"0.0.};
+version=${version%% *};
+version=$(printf %.1s "$version");
+newVersion=$(($version+1))
 
-exit;
+sed "s/version=\"0.0.$version\"/version=\"0.0.${newVersion}\"/" addon.xml > addon_temp.xml;
+
+rm addon.xml;
+mv addon_temp.xml addon.xml;
+
+echo " 2/2 ==> Commit and push";
+git add .;
+git commit -am "Update to v${newVersion}";
+git push;
+
+echo "
+
+Finish! Update from v$version to v$newVersion";
