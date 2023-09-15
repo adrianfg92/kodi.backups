@@ -16,7 +16,7 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#32001"
+msgctxt "#32000"
 msgid "General"
 msgstr "General"
 
