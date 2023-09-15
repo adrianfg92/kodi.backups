@@ -1,28 +1,28 @@
-import math
-import re
+import binascii
+import hashlib
 import json
 import logging
-import secrets
-from pathlib import Path
-import hashlib
-from Crypto.Cipher import AES
-from Crypto.PublicKey import RSA
-from Crypto.Util import Counter
+import math
 import os
 import random
-import binascii
-import tempfile
+import re
+import secrets
 import shutil
+import tempfile
+from pathlib import Path
 
 import requests
 from tenacity import retry, wait_exponential, retry_if_exception_type
 
-from .errors import ValidationError, RequestError
 from .crypto import (a32_to_base64, encrypt_key, base64_url_encode,
                      encrypt_attr, base64_to_a32, base64_url_decode,
                      decrypt_attr, a32_to_str, get_chunks, str_to_a32,
                      decrypt_key, mpi_to_int, stringhash, prepare_key, make_id,
                      makebyte, modular_inverse)
+from .errors import ValidationError, RequestError
+from ..Crypto.Cipher import AES
+from ..Crypto.PublicKey import RSA
+from ..Crypto.Util import Counter
 
 logger = logging.getLogger(__name__)
 
@@ -83,13 +83,13 @@ class Mega:
 
         user = self._api_request({
             'a':
-            'up',
+                'up',
             'k':
-            a32_to_base64(encrypt_key(master_key, password_key)),
+                a32_to_base64(encrypt_key(master_key, password_key)),
             'ts':
-            base64_url_encode(
-                a32_to_str(session_self_challenge) +
-                a32_to_str(encrypt_key(session_self_challenge, master_key)))
+                base64_url_encode(
+                    a32_to_str(session_self_challenge) +
+                    a32_to_str(encrypt_key(session_self_challenge, master_key)))
         })
 
         resp = self._api_request({'a': 'us', 'user': user})
@@ -611,19 +611,19 @@ class Mega:
         node_id = node_data['h']
         request_body = [{
             'a':
-            's2',
+                's2',
             'n':
-            node_id,
+                node_id,
             's': [{
                 'u': 'EXP',
                 'r': 0
             }],
             'i':
-            self.request_id,
+                self.request_id,
             'ok':
-            ok,
+                ok,
             'ha':
-            ha,
+                ha,
             'cr': [[node_id], [node_id], [0, 0, encrypted_node_key]]
         }]
         self._api_request(request_body)
@@ -739,7 +739,7 @@ class Mega:
             file_mac = str_to_a32(mac_str)
             # check mac integrity
             if (file_mac[0] ^ file_mac[1],
-                    file_mac[2] ^ file_mac[3]) != meta_mac:
+                file_mac[2] ^ file_mac[3]) != meta_mac:
                 raise ValueError('Mismatched mac')
             output_path = Path(dest_path + file_name)
             shutil.move(temp_output_file.name, output_path)
@@ -831,11 +831,11 @@ class Mega:
             # update attributes
             data = self._api_request({
                 'a':
-                'p',
+                    'p',
                 't':
-                dest,
+                    dest,
                 'i':
-                self.request_id,
+                    self.request_id,
                 'n': [{
                     'h': completion_file_handle,
                     't': 0,
@@ -858,9 +858,9 @@ class Mega:
         # update attributes
         data = self._api_request({
             'a':
-            'p',
+                'p',
             't':
-            parent_node_id,
+                parent_node_id,
             'n': [{
                 'h': 'xxxxxxxx',
                 't': 1,
@@ -868,7 +868,7 @@ class Mega:
                 'k': encrypted_key
             }],
             'i':
-            self.request_id
+                self.request_id
         })
         return data
 
@@ -938,7 +938,7 @@ class Mega:
         # determine target_node_id
         if type(target) == int:
             target_node_id = str(self.get_node_by_type(target)[0])
-        elif type(target) in (str, ):
+        elif type(target) in (str,):
             target_node_id = target
         else:
             file = target[1]
@@ -1048,9 +1048,9 @@ class Mega:
         encrypted_name = base64_url_encode(encrypt_attr({'n': dest_name}, k))
         return self._api_request({
             'a':
-            'p',
+                'p',
             't':
-            dest_node['h'],
+                dest_node['h'],
             'n': [{
                 'ph': file_handle,
                 't': 0,
