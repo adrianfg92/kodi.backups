@@ -4,7 +4,7 @@
 
         <category id="general" label="32000" help="">
             <group id="1" label="">
-                <setting id="test01" type="string" label="32001" help="">
+                <setting id="apikey" type="string" label="32001" help="">
                     <level>0</level>
                     <default/>
                     <constraints>
