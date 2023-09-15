@@ -2,7 +2,7 @@ import xbmcaddon
 import xbmcgui
 
 addon = xbmcaddon.Addon()
-addonName = addon.getAddonInfo('name')
+addonName = addon.getAddonInfo('id')
 selfAddon = xbmcaddon.Addon(id=addonName)
 
 APIKEY = selfAddon.getSetting('apikey')
