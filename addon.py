@@ -1,12 +1,18 @@
 import xbmcaddon
 import xbmcgui
+from mega import Mega
 
 addon = xbmcaddon.Addon()
 addonName = addon.getAddonInfo('id')
+mega = Mega()
+
 selfAddon = xbmcaddon.Addon(id=addonName)
+password = selfAddon.getSetting('username')
+username = selfAddon.getSetting('password')
 
-APIKEY = selfAddon.getSetting('apikey')
+m = mega.login(username, password)
+quota = m.get_quota()
 
-line1 = "Hello Adrian 0.0.11!" + APIKEY
+line1 = "Hello Adrian! " + quota
 
 xbmcgui.Dialog().ok(addonName, line1)

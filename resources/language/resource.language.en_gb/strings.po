@@ -17,9 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgctxt "#32000"
-msgid "General"
-msgstr "General"
+msgid "Mega.nz"
+msgstr "Mega.nz"
 
 msgctxt "#32001"
-msgid "Api Key"
-msgstr "Api Key"
+msgid "Username"
+msgstr "Username"
+
+msgctxt "#32002"
+msgid "Password"
+msgstr "Password"

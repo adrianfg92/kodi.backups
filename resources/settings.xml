@@ -4,7 +4,7 @@
 
         <category id="general" label="32000" help="">
             <group id="1" label="">
-                <setting id="apikey" type="string" label="32001" help="">
+                <setting id="username" type="string" label="32001" help="">
                     <level>0</level>
                     <default/>
                     <constraints>
@@ -12,6 +12,16 @@
                     </constraints>
                     <control type="edit" format="string">
                         <heading>32001</heading>
+                    </control>
+                </setting>
+                <setting id="password" type="string" label="32002" help="">
+                    <level>0</level>
+                    <default/>
+                    <constraints>
+                        <allowempty>true</allowempty>
+                    </constraints>
+                    <control type="edit" format="string">
+                        <heading>32002</heading>
                     </control>
                 </setting>
             </group>
