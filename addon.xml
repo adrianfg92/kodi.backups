@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="kodi.backups" name="kodi.backups" version="0.0.23" provider-name="adrian">
+<addon id="kodi.backups" name="kodi.backups" version="0.0.24" provider-name="adrian">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="mega.py" version="1.0.8"/>
     </requires>
     <extension point="xbmc.python.script" library="addon.py">
         <provides>executable</provides>
