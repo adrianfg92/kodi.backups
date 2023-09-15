@@ -1,4 +1,4 @@
-from Crypto.Cipher import AES
+from ..Crypto.Cipher import AES
 import json
 import base64
 import struct
