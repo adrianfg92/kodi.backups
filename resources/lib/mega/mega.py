@@ -11,18 +11,17 @@ import shutil
 import tempfile
 from pathlib import Path
 
-import requests
-from tenacity import retry, wait_exponential, retry_if_exception_type
-
 from .crypto import (a32_to_base64, encrypt_key, base64_url_encode,
                      encrypt_attr, base64_to_a32, base64_url_decode,
                      decrypt_attr, a32_to_str, get_chunks, str_to_a32,
                      decrypt_key, mpi_to_int, stringhash, prepare_key, make_id,
                      makebyte, modular_inverse)
 from .errors import ValidationError, RequestError
+from .. import requests
 from ..Crypto.Cipher import AES
 from ..Crypto.PublicKey import RSA
 from ..Crypto.Util import Counter
+from ..tenacity import retry_if_exception_type, retry, wait_exponential
 
 logger = logging.getLogger(__name__)
 
