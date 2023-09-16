@@ -1,7 +1,6 @@
 import xbmcaddon
 import xbmcgui
-
-from resources.lib.mega import Mega
+from mega import Mega
 
 FOLDERNAME = 'Kodi'
 # FAVOURITES = 'favourites.xml'
@@ -24,6 +23,7 @@ if not folder:
 
 line1 = "Folder id: " + folder[0]
 xbmcgui.Dialog().ok(addonName, line1)
+# print(folder)
 
 # # Deleting old backup
 # file = m.find(FAVOURITES)
